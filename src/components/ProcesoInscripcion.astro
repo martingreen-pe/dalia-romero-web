@@ -1,0 +1,101 @@
+---
+const pasos = [
+  {
+    numero: 1,
+    titulo: "Elige tu curso",
+    descripcion: "Explora nuestra variedad de cursos y selecciona el que mejor se adapte a tus objetivos profesionales.",
+  },
+  {
+    numero: 2,
+    titulo: "Contáctanos",
+    descripcion: "Llena el formulario de contacto o envíanos un mensaje por WhatsApp para obtener más información.",
+  },
+  {
+    numero: 3,
+    titulo: "Reserva tu lugar",
+    descripcion: "Realiza el pago de la matrícula para asegurar tu lugar en el curso seleccionado.",
+  },
+  {
+    numero: 4,
+    titulo: "¡Comienza tu formación!",
+    descripcion: "Asiste a las clases según el horario establecido y da el primer paso hacia tu nueva carrera en belleza.",
+  },
+];
+---
+
+<section class="proceso-inscripcion">
+  <h2 class="proceso-inscripcion__titulo">Proceso de Inscripción</h2>
+  <div class="proceso-inscripcion__grid">
+    {pasos.map((paso) => (
+      <div class="paso-card">
+        <div class="paso-card__numero">{paso.numero}</div>
+        <h3 class="paso-card__titulo">{paso.titulo}</h3>
+        <p class="paso-card__descripcion">{paso.descripcion}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .proceso-inscripcion {
+    padding: 4rem 1rem;
+    background: var(--gradient-primary);
+  }
+
+  .proceso-inscripcion__titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .proceso-inscripcion__grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .paso-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .paso-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .paso-card__numero {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .paso-card__titulo {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .paso-card__descripcion {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .proceso-inscripcion__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .proceso-inscripcion__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

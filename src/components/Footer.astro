@@ -1,0 +1,64 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__container container">
+    <p class="footer__copyright">&copy; {currentYear} Dalia Romero. Todos los derechos reservados.</p>
+    <nav class="footer__nav">
+      <ul class="footer__menu">
+        <li class="footer__menu-item"><a href="/politica-privacidad">Política de Privacidad</a></li>
+        <li class="footer__menu-item"><a href="/terminos-condiciones">Términos y Condiciones</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: linear-gradient(135deg, #8a2be2, #4b0082);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 2rem;
+  }
+
+  .footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__copyright {
+    margin-bottom: 1rem;
+  }
+
+  .footer__menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer__menu-item a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer__menu-item a:hover {
+    color: #25D366;
+  }
+
+  @media (min-width: 768px) {
+    .footer__container {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .footer__copyright {
+      margin-bottom: 0;
+    }
+  }
+</style>

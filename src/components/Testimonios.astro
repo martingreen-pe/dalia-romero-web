@@ -1,0 +1,94 @@
+---
+const testimonios = [
+  {
+    nombre: "María González",
+    curso: "Curso de Softgel",
+    testimonio: "El curso de Dalia me ha dado la confianza y las habilidades que necesitaba para iniciar mi propio negocio de manicura. ¡Altamente recomendado!",
+  },
+  {
+    nombre: "Laura Pérez",
+    curso: "Curso de Uñas Acrílicas",
+    testimonio: "La atención al detalle y la paciencia de Dalia como instructora son incomparables. He mejorado significativamente mis técnicas gracias a su curso.",
+  },
+  {
+    nombre: "Ana Martínez",
+    curso: "Curso de Manicura Rusa",
+    testimonio: "Aprender la técnica de manicura rusa con Dalia ha sido una experiencia transformadora. Mis clientes están encantados con los resultados.",
+  },
+];
+---
+
+<section class="testimonios">
+  <h2 class="testimonios__titulo">Lo que dicen nuestros estudiantes</h2>
+  <div class="testimonios__grid">
+    {testimonios.map((testimonio) => (
+      <div class="testimonio-card">
+        <p class="testimonio-card__texto">"{testimonio.testimonio}"</p>
+        <p class="testimonio-card__autor">{testimonio.nombre}</p>
+        <p class="testimonio-card__curso">{testimonio.curso}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .testimonios {
+    padding: 4rem 1rem;
+    background: var(--gradient-secondary);
+  }
+
+  .testimonios__titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .testimonios__grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonio-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .testimonio-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .testimonio-card__texto {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .testimonio-card__autor {
+    font-weight: bold;
+    color: var(--color-accent);
+  }
+
+  .testimonio-card__curso {
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .testimonios__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonios__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

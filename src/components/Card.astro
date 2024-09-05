@@ -1,61 +1,95 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
-
-const { href, title, body } = Astro.props;
+const trabajos = [
+  { imagen: "/src/images/trabajo-1.jpg", descripcion: "Diseño de uñas con flores" },
+  { imagen: "/src/images/trabajo-2.jpg", descripcion: "Manicura francesa elegante" },
+  { imagen: "/src/images/trabajo-3.jpg", descripcion: "Uñas acrílicas con brillos" },
+  { imagen: "/src/images/trabajo-4.jpg", descripcion: "Nail art geométrico" },
+  { imagen: "/src/images/trabajo-5.jpg", descripcion: "Manicura rusa perfecta" },
+  { imagen: "/src/images/trabajo-6.jpg", descripcion: "Diseño de uñas minimalista" },
+];
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<section class="galeria">
+  <h2 class="galeria__titulo">Galería de Trabajos</h2>
+  <div class="galeria__grid">
+    {trabajos.map((trabajo) => (
+      <div class="galeria__item">
+        <img src={trabajo.imagen} alt={trabajo.descripcion} class="galeria__imagen">
+        <div class="galeria__overlay">
+          <p class="galeria__descripcion">{trabajo.descripcion}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
+  .galeria {
+    padding: 4rem 1rem;
+    background: var(--gradient-secondary);
+  }
+
+  .galeria__titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .galeria__grid {
+    display: grid;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .galeria__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .galeria__imagen {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .galeria__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .galeria__descripcion {
+    color: var(--color-text);
+    text-align: center;
+    margin: 0;
+  }
+
+  .galeria__item:hover .galeria__imagen {
+    transform: scale(1.1);
+  }
+
+  .galeria__item:hover .galeria__overlay {
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    .galeria__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .galeria__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 </style>

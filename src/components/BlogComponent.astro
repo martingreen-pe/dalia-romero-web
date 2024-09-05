@@ -1,0 +1,102 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+
+function truncate(text: string, length: number) {
+  return text.length > length ? text.substring(0, length) + '...' : text;
+}
+---
+
+<section class="blog-section">
+  <h2>Últimas publicaciones</h2>
+  <div class="post-grid">
+    {posts.map((post) => (
+      <article class="post-card">
+        {post.data.image && <img src={post.data.image} alt={post.data.title} />}
+        <div class="post-content">
+          <h3>{post.data.title}</h3>
+          <p>{truncate(post.data.description, 100)}</p>
+          <div class="categories">
+            {post.data.categories.map((category) => (
+              <span class="category">{category}</span>
+            ))}
+          </div>
+          <a href={`/blog/${post.slug}`}>Leer más</a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .blog-section {
+    padding: 2rem;
+    background: var(--gradient-secondary);
+    color: var(--color-text);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    background: var(--gradient-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .post-content {
+    padding: 1rem;
+  }
+
+  .post-card h3 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .category {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+
+  .post-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .post-card a:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,94 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Hero from '../components/Hero.astro';
+import Cursos from '../components/Cursos.astro';
+import SobreMi from '../components/SobreMi.astro';
+import Testimonios from '../components/Testimonios.astro';
+import ProcesoInscripcion from '../components/ProcesoInscripcion.astro';
+import Galeria from '../components/Galeria.astro';
+import PreguntasFrecuentes from '../components/PreguntasFrecuentes.astro';
+import CTA from '../components/cta.astro';
+import BlogComponent from '../components/BlogComponent.astro'
 ---
 
-<Layout title="Dalia Romero - Cursos de Uñas Acrílicas">
-	<main>
-		<h1>Bienvenidos a los cursos de <span class="text-gradient">Dalia Romero</span></h1>
-		<p class="instructions">
-			Descubre el arte de las uñas acrílicas con nuestros cursos especializados.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="/cursos"
-				title="Nuestros Cursos"
-				body="Explora nuestra variedad de cursos de uñas acrílicas."
-			/>
-			<Card
-				href="/sobre-mi"
-				title="Sobre Dalia"
-				body="Conoce más sobre tu instructora y su experiencia."
-			/>
-			<Card
-				href="/contacto"
-				title="Contacto"
-				body="¿Preguntas? Contáctanos para más información."
-			/>
-			<Card
-				href="/galeria"
-				title="Galería"
-				body="Mira algunos de los trabajos realizados por nuestros estudiantes."
-			/>
-		</ul>
-	</main>
+<Layout title="Dalia Romero - Cursos de Belleza">
+  <main>
+    <Hero />
+    <Cursos />
+    <SobreMi />
+    <Testimonios />
+    <CTA />
+    <ProcesoInscripcion />
+    <Galeria />
+    <PreguntasFrecuentes />
+    <BlogComponent />
+    
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+  :root {
+    --gradient-primary: linear-gradient(135deg, #8a2be2, #4b0082);
+    --gradient-secondary: linear-gradient(135deg, #6a0dad, #4b0082);
+    --color-accent: #25D366;
+    --color-text: #ffffff;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    background: #ffffff;
+    min-height: 100vh;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
 </style>

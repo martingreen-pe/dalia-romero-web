@@ -1,106 +1,23 @@
 ---
-interface Props {
-	title: string;
-}
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const { title } = Astro.props;
 ---
 
-<!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Cursos de uñas acrílicas por Dalia Romero" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<header>
-			<nav>
-				<ul>
-					<li><a href="/">Inicio</a></li>
-					<li><a href="/cursos">Cursos</a></li>
-					<li><a href="/sobre-mi">Sobre Mí</a></li>
-					<li><a href="/contacto">Contacto</a></li>
-				</ul>
-			</nav>
-		</header>
-		<slot />
-		<footer>
-			<p>&copy; 2024 Dalia Romero. Todos los derechos reservados.</p>
-		</footer>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <title>{title} | Dalia Romero</title>
+  </head>
+  <body>
+    <Header />
+    <main class="container">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-	body {
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-	header {
-		background-color: rgba(var(--accent-dark), 0.9);
-		padding: 1rem;
-	}
-	nav ul {
-		list-style: none;
-		padding: 0;
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-	}
-	nav a {
-		color: white;
-		text-decoration: none;
-	}
-	footer {
-		background-color: rgba(var(--accent-dark), 0.9);
-		color: white;
-		text-align: center;
-		padding: 1rem;
-		margin-top: auto;
-	}
-
-	@media (max-width: 600px) {
-		nav ul {
-			flex-direction: column;
-			align-items: center;
-		}
-		h1 {
-			font-size: 2.5rem;
-		}
-		.link-card-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>
