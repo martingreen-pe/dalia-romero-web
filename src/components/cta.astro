@@ -77,32 +77,32 @@
   </style>
   
   <script>
-    const ctaSection = document.querySelector('.cta-whatsapp');
-    const ctaButton = document.getElementById('ctaButton');
-    const ctaTitle = document.querySelector('.cta-whatsapp h2');
-    const ctaText = document.querySelector('.cta-whatsapp p');
-  
+    const ctaSection = document.querySelector('.cta-whatsapp') as HTMLElement;
+    const ctaButton = document.getElementById('ctaButton') as HTMLAnchorElement;
+    const ctaTitle = document.querySelector('.cta-whatsapp h2') as HTMLElement;
+    const ctaText = document.querySelector('.cta-whatsapp p') as HTMLElement;
+
     if (ctaSection && ctaButton && ctaTitle && ctaText) {
       ctaSection.addEventListener('mouseenter', () => {
         ctaSection.style.transform = 'scale(1.02)';
         ctaTitle.style.color = '#25D366';
         ctaText.style.opacity = '0.8';
       });
-  
+
       ctaSection.addEventListener('mouseleave', () => {
         ctaSection.style.transform = 'scale(1)';
         ctaTitle.style.color = '';
         ctaText.style.opacity = '1';
       });
-  
+
       ctaButton.addEventListener('mouseenter', () => {
         ctaButton.style.transform = 'translateY(-5px) scale(1.05)';
       });
-  
+
       ctaButton.addEventListener('mouseleave', () => {
         ctaButton.style.transform = '';
       });
-  
+
       ctaButton.addEventListener('click', (e) => {
         e.preventDefault();
         ctaButton.style.transform = 'scale(0.95)';
@@ -112,4 +112,4 @@
         }, 300);
       });
     }
-  </script>
+</script>
