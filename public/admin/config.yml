@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main # o el nombre de tu rama principal
 
-media_folder: "public/images/posts" # Donde se subirán inicialmente los archivos multimedia
+media_folder: "public/images/posts" # Donde se subirán los archivos multimedia
 public_folder: "/images/posts" # Prefijo para URLs públicas
 
 collections:
@@ -12,7 +12,7 @@ collections:
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{slug}}"
     media_folder: ''
-    public_folder: ''
+    public_folder: "/images/posts/{{slug}}"
     path: "{{slug}}/index"
     editor:
       preview: false
@@ -20,6 +20,6 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Publish Date", name: "pubDate", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image", media_folder: "src/content/posts/{{slug}}", public_folder: ".", required: false}
+      - {label: "Featured Image", name: "image", widget: "image", media_folder: "public/images/posts/{{slug}}", public_folder: "/images/posts/{{slug}}", required: false}
       - {label: "Categories", name: "categories", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}

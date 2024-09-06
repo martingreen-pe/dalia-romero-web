@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-const posts = await getCollection('post');
+const posts = await getCollection('posts');
 
 function truncate(text: string, length: number) {
   return text.length > length ? text.substring(0, length) + '...' : text;
@@ -15,7 +15,7 @@ function truncate(text: string, length: number) {
     <div class="post-list">
       {posts.map((post) => (
         <article class="post-item">
-          <img src={post.data.image} alt={post.data.title} />
+          {post.data.image && <img src={post.data.image} alt={post.data.title} />}
           <div class="post-content">
             <h2>{post.data.title}</h2>
             <p>{truncate(post.data.description, 150)}</p>
