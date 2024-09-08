@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const posts = await getCollection('posts');
+
+function truncate(text: string, length: number) {
+  return text.length > length ? text.substring(0, length) + '...' : text;
+}
+---
+
+<Layout title="Blog">
+  <main class="blog-page">
+    <h1>Blog</h1>
+    <div class="post-list">
+      {posts.map((post) => (
+        <article class="post-item">
+          {post.data.image && <img src={post.data.image} alt={post.data.title} />}
+          <div class="post-content">
+            <h2>{post.data.title}</h2>
+            <p>{truncate(post.data.description, 150)}</p>
+            <div class="categories">
+              {post.data.categories.map((category) => (
+                <span class="category">{category}</span>
+              ))}
+            </div>
+            <a href={`/blog/${post.slug}`}>Leer artículo completo</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blog-page {
+    padding: 2rem;
+    background: var(--gradient-secondary);
+    min-height: 100vh;
+    color: var(--color-text);
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--color-accent);
+  }
+
+  .post-list {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .post-item {
+    background: var(--gradient-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+
+  .post-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .post-item img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .post-content {
+    padding: 1.5rem;
+    flex: 1;
+  }
+
+  .post-item h2 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .category {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+
+  .post-item a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .post-item a:hover {
+    text-decoration: underline;
+  }
+</style>
