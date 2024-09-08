@@ -1,6 +1,6 @@
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute, d as renderComponent } from '../chunks/astro/server_B3VdOgnT.mjs';
 import 'kleur/colors';
-import { g as getCollection, $ as $$Layout } from '../chunks/Layout_BfsRNMxS.mjs';
+import { g as getCollection, $ as $$Layout } from '../chunks/Layout_D08RaX8p.mjs';
 import 'clsx';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
@@ -133,7 +133,13 @@ const $$BlogComponent = createComponent(async ($$result, $$props, $$slots) => {
   function truncate(text, length) {
     return text.length > length ? text.substring(0, length) + "..." : text;
   }
-  return renderTemplate`${maybeRenderHead()}<section class="blog-section" data-astro-cid-46m2uak2> <h2 data-astro-cid-46m2uak2>Últimas publicaciones</h2> <div class="post-grid" data-astro-cid-46m2uak2> ${posts.map((post) => renderTemplate`<article class="post-card" data-astro-cid-46m2uak2> ${post.data.image && renderTemplate`<img${addAttribute(post.data.image, "src")}${addAttribute(post.data.title, "alt")} data-astro-cid-46m2uak2>`} <div class="post-content" data-astro-cid-46m2uak2> <h3 data-astro-cid-46m2uak2>${post.data.title}</h3> <p data-astro-cid-46m2uak2>${truncate(post.data.description, 100)}</p> <div class="categories" data-astro-cid-46m2uak2> ${post.data.categories.map((category) => renderTemplate`<span class="category" data-astro-cid-46m2uak2>${category}</span>`)} </div> <a${addAttribute(`/blog/${post.slug}`, "href")} data-astro-cid-46m2uak2>Leer más</a> </div> </article>`)} </div> </section> `;
+  function getImageUrl(post) {
+    if (post.data.image) {
+      return `/content/posts/${post.slug}/${post.data.image}`;
+    }
+    return null;
+  }
+  return renderTemplate`${maybeRenderHead()}<section class="blog-section" data-astro-cid-46m2uak2> <h2 data-astro-cid-46m2uak2>Últimas publicaciones</h2> <div class="post-grid" data-astro-cid-46m2uak2> ${posts.map((post) => renderTemplate`<article class="post-card" data-astro-cid-46m2uak2> ${post.data.image && renderTemplate`<img${addAttribute(getImageUrl(post), "src")}${addAttribute(post.data.title, "alt")} data-astro-cid-46m2uak2>`} <div class="post-content" data-astro-cid-46m2uak2> <h3 data-astro-cid-46m2uak2>${post.data.title}</h3> <p data-astro-cid-46m2uak2>${truncate(post.data.description, 100)}</p> <div class="categories" data-astro-cid-46m2uak2> ${post.data.categories.map((category) => renderTemplate`<span class="category" data-astro-cid-46m2uak2>${category}</span>`)} </div> <a${addAttribute(`/blog/${post.slug}`, "href")} data-astro-cid-46m2uak2>Leer más</a> </div> </article>`)} </div> </section> `;
 }, "C:/Users/marti/Documents/AstroJS/dalia-romero-web/src/components/BlogComponent.astro", void 0);
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {

@@ -22,8 +22,12 @@ export default defineConfig({
       },
     },
   },
-
-  content: {
-    sources: ['public/images/posts'],
+  
+  contentCollections: {
+    posts: {
+      entrySchema: 'config:content',
+      directory: 'public/content/posts',
+    },
   },
+  publicDir: 'public',
 });

@@ -6,6 +6,13 @@ const posts = await getCollection('posts');
 function truncate(text: string, length: number) {
   return text.length > length ? text.substring(0, length) + '...' : text;
 }
+
+function getImageUrl(post) {
+  if (post.data.image) {
+    return `/content/posts/${post.slug}/${post.data.image}`;
+  }
+  return null;
+}
 ---
 
 <section class="blog-section">
@@ -13,7 +20,7 @@ function truncate(text: string, length: number) {
   <div class="post-grid">
     {posts.map((post) => (
       <article class="post-card">
-        {post.data.image && <img src={`/images/posts/${post.slug}/${post.data.image}`} alt={post.data.title} />}
+        {post.data.image && <img src={getImageUrl(post)} alt={post.data.title} />}
         <div class="post-content">
           <h3>{post.data.title}</h3>
           <p>{truncate(post.data.description, 100)}</p>

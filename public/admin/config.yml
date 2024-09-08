@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: main # o el nombre de tu rama principal
 
-media_folder: "public/images/posts"
-public_folder: "/images/posts"
+media_folder: "public/content/posts"
+public_folder: "/content/posts"
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "public/images/posts"
+    folder: "public/content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     media_folder: ''
@@ -21,6 +21,3 @@ collections:
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Categories", name: "categories", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
-
-# Asegúrate de que esta línea esté presente y correcta
-publish_mode: editorial_workflow
