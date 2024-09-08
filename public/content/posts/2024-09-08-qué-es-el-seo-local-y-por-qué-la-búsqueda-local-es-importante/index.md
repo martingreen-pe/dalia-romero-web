@@ -1,10 +1,10 @@
 ---
-title: Qué es el SEO local y por qué la búsqueda local es importante
-description: Qué es el SEO local y por qué la búsqueda local es importante--descripcion
-pubDate: 2024-09-08T18:37:10.994Z
+title: 22Qué es el SEO local y por qué la búsqueda local es importante
+description: 22Qué es el SEO local y por qué la búsqueda local es importante--descripcion
+pubDate: 2024-09-08T18:51:45.593Z
 image: pl.jpg
 categories:
   - manicura
   - pedicura
 ---
-Qué es el SEO local y por qué la búsqueda local es importante -- bodyy
+22Qué es el SEO local y por qué la búsqueda local es importante -- bodyy222
