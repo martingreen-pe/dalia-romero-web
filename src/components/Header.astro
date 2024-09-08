@@ -145,14 +145,22 @@
 </style>
 
 <script>
-  const toggle = document.querySelector('.header__toggle');
-  const nav = document.querySelector('.header__nav');
-  const toggleIcon = document.querySelector('.header__toggle-icon');
+  function setupMenu() {
+    const toggle = document.querySelector('.header__toggle');
+    const nav = document.querySelector('.header__nav');
+    const toggleIcon = document.querySelector('.header__toggle-icon');
 
-  if (toggle && nav && toggleIcon) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('header__nav--active');
-      toggleIcon.classList.toggle('active');
-    });
+    if (toggle && nav && toggleIcon) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('header__nav--active');
+        toggleIcon.classList.toggle('active');
+      });
+    }
   }
+
+  // Ejecuta la función cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', setupMenu);
+
+  // Para asegurarnos de que funcione con la navegación del lado del cliente de Astro
+  document.addEventListener('astro:page-load', setupMenu);
 </script>

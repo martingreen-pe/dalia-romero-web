@@ -10,16 +10,11 @@ collections:
     label: "Blog"
     folder: "src/content/posts"
     create: true
-    slug: "{{day}}-{{month}}-{{year}}-{{slug}}"
-    media_folder: ''
-    public_folder: "/images/posts/{{slug}}"
-    path: "{{slug}}/index"
-    editor:
-      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Publish Date", name: "pubDate", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image", media_folder: "public/images/posts/{{slug}}", public_folder: "/images/posts/{{slug}}", required: false}
+      - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Categories", name: "categories", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
