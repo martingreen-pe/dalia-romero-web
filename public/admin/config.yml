@@ -21,3 +21,6 @@ collections:
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Categories", name: "categories", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+# Asegúrate de que esta línea esté presente y correcta
+publish_mode: editorial_workflow

@@ -13,5 +13,9 @@ export default defineConfig({
   // Habilita los scripts del lado del cliente
   scripts: {
     clientEntry: true
-  }
+  },
+  
+  content: {
+    sources: ['public/images/posts'],
+  },
 });
