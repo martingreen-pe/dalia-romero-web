@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('post');
+  const posts = await getCollection('posts');  // Cambiado de 'post' a 'posts'
   return posts.map(post => ({
     params: { slug: post.slug },
     props: { post },
@@ -12,33 +12,26 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+// Función para obtener la URL de la imagen
+function getImageUrl(post) {
+  if (post.data.image) {
+    return `/images/posts/${post.slug}/${post.data.image}`;
+  }
+  return null;
+}
 ---
 
 <Layout title={post.data.title}>
   <article class="blog-post">
     <h1>{post.data.title}</h1>
     <p class="date">{post.data.pubDate.toLocaleDateString()}</p>
+    {getImageUrl(post) && <img src={getImageUrl(post)} alt={post.data.title} />}
     <Content />
+    <div class="categories">
+      {post.data.categories.map((category) => (
+        <span class="category">{category}</span>
+      ))}
+    </div>
   </article>
 </Layout>
-
-<style>
-  .blog-post {
-    padding: 2rem;
-    background: var(--gradient-secondary);
-    color: var(--color-text);
-    min-height: 100vh;
-  }
-
-  h1 {
-    color: var(--color-accent);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .date {
-    color: var(--color-text);
-    opacity: 0.8;
-    margin-bottom: 2rem;
-  }
-</style>

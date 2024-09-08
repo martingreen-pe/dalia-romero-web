@@ -14,7 +14,15 @@ export default defineConfig({
   scripts: {
     clientEntry: true
   },
-  
+
+  vite: {
+    resolve: {
+      alias: {
+        '~/': '/src/',
+      },
+    },
+  },
+
   content: {
     sources: ['public/images/posts'],
   },
