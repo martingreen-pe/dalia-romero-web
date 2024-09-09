@@ -2,18 +2,18 @@ backend:
   name: git-gateway
   branch: main # o el nombre de tu rama principal
 
-media_folder: "public/images/posts-images"
-public_folder: "/images/posts-images"
+media_folder: "public/images/posts-images"  # Carpeta donde se almacenarán las imágenes
+public_folder: "/images/posts-images"       # Carpeta pública para servir imágenes
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "src/content/posts"
+    folder: "src/content/posts"  # Carpeta donde se guardarán los archivos Markdown
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    media_folder: "/public/images/posts-images/{{slug}}"
-    public_folder: "/images/posts-images/{{slug}}"
-    path: '{{slug}}/index'
+    media_folder: "/public/images/posts-images/{{slug}}"  # Carpeta dinámica de imágenes
+    public_folder: "/images/posts-images/{{slug}}"        # Carpeta pública para las imágenes
+    path: '{{slug}}/index.md'                             # Asegúrate de que el archivo .md se guarde correctamente
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
