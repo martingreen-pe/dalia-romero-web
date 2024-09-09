@@ -1,21 +1,24 @@
 backend:
   name: git-gateway
-  branch: main # Cambia a la rama de producción si no es `main`
+  branch: main # o el nombre de tu rama principal
 
-media_folder: "public/images/posts-images"  # Aquí se almacenarán las imágenes
-public_folder: "/images/posts-images"       # Ruta para acceder a las imágenes desde el sitio web
+media_folder: "public/images/posts-images"  # Carpeta principal para las imágenes
+public_folder: "/images/posts-images"       # Carpeta pública para las imágenes
 
 collections:
   - name: "blog"
     label: "Blog"
     folder: "src/content/posts"  # Carpeta donde se guardarán los archivos Markdown
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    path: '{{slug}}/index.md'  # El archivo Markdown
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # El slug incluye la fecha
+    path: '{{year}}-{{month}}-{{day}}-{{slug}}/index.md'  # Ruta donde se guarda el archivo Markdown
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Publish Date", name: "pubDate", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image", media_folder: "public/images/posts-images/{{slug}}", public_folder: "/images/posts-images/{{slug}}"}  # Específicamente para la imagen
+      - {label: "Featured Image", name: "image", widget: "image", 
+          media_folder: "/public/images/posts-images/{{year}}-{{month}}-{{day}}-{{slug}}",  # Incluye la fecha y el slug en la carpeta de imágenes
+          public_folder: "/images/posts-images/{{year}}-{{month}}-{{day}}-{{slug}}"  # Ruta pública que incluye la fecha y el slug
+        }
       - {label: "Categories", name: "categories", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
