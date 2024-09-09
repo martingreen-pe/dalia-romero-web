@@ -15,7 +15,7 @@ const { Content } = await post.render();
 
 function getImageUrl(post) {
   if (post.data.image) {
-    return `/posts-images/${post.slug}/${post.data.image}`;
+    return `/images/posts-images/${post.slug}/${post.data.image}`;
   }
   return null;
 }

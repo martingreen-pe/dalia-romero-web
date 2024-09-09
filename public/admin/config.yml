@@ -3,7 +3,7 @@ backend:
   branch: main # o el nombre de tu rama principal
 
 media_folder: "public/posts-images"
-public_folder: "/posts-images"
+public_folder: "/images/posts-images"
 
 collections:
   - name: "blog"
