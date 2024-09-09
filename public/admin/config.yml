@@ -1,9 +1,9 @@
 backend:
   name: git-gateway
-  branch: main # o el nombre de tu rama principal
+  branch: main # Cambia a la rama de producción si no es `main`
 
-media_folder: "public/images/posts-images"  # Carpeta donde se almacenarán las imágenes
-public_folder: "/images/posts-images"       # Carpeta pública para servir imágenes
+media_folder: "public/images/posts-images"  # Aquí se almacenarán las imágenes
+public_folder: "/images/posts-images"       # Ruta para acceder a las imágenes desde el sitio web
 
 collections:
   - name: "blog"
@@ -11,13 +11,11 @@ collections:
     folder: "src/content/posts"  # Carpeta donde se guardarán los archivos Markdown
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    media_folder: "/public/images/posts-images/{{slug}}"  # Carpeta dinámica de imágenes
-    public_folder: "/images/posts-images/{{slug}}"        # Carpeta pública para las imágenes
-    path: '{{slug}}/index.md'                             # Asegúrate de que el archivo .md se guarde correctamente
+    path: '{{slug}}/index.md'  # El archivo Markdown
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Publish Date", name: "pubDate", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Featured Image", name: "image", widget: "image", media_folder: "public/images/posts-images/{{slug}}", public_folder: "/images/posts-images/{{slug}}"}  # Específicamente para la imagen
       - {label: "Categories", name: "categories", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
