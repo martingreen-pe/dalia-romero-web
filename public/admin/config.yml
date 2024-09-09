@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main # o el nombre de tu rama principal
 
-media_folder: "src/content/posts"
-public_folder: "/content/posts"
+media_folder: "public/posts-images"
+public_folder: "/posts-images"
 
 collections:
   - name: "blog"

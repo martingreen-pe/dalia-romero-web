@@ -9,7 +9,7 @@ function truncate(text: string, length: number) {
 
 function getImageUrl(post) {
   if (post.data.image) {
-    return `../../content/posts/${post.slug}/${post.data.image}`;
+    return `/posts-images/${post.slug}/${post.data.image}`;
   }
   return null;
 }
