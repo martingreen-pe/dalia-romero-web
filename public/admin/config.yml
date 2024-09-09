@@ -17,8 +17,8 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Publish Date", name: "pubDate", widget: "datetime"}
       - {label: "Featured Image", name: "image", widget: "image", 
-          media_folder: "/public/images/posts-images/{{year}}-{{month}}-{{day}}-{{slug}}",  # Incluye la fecha y el slug en la carpeta de imágenes
-          public_folder: "/images/posts-images/{{year}}-{{month}}-{{day}}-{{slug}}"  # Ruta pública que incluye la fecha y el slug
+          media_folder: "/public/images/posts-images/{{date:YYYY-MM-DD}}-{{slug}}",  # Usa `date` para generar la fecha completa
+          public_folder: "/images/posts-images/{{date:YYYY-MM-DD}}-{{slug}}"  # Ruta pública que incluye la fecha
         }
       - {label: "Categories", name: "categories", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
