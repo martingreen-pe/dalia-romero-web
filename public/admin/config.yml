@@ -11,7 +11,7 @@ collections:
     folder: "src/content/posts"  # Carpeta donde se guardarán los archivos Markdown
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # El slug incluye la fecha
-    path: '{{year}}-{{month}}-{{day}}-{{slug}}/index.md'  # Ruta donde se guarda el archivo Markdown
+    path: '{{year}}-{{month}}-{{day}}-{{slug}}/index'  # Ruta donde se guarda el archivo Markdown
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
