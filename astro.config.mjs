@@ -23,11 +23,12 @@ export default defineConfig({
     },
   },
   
-  contentCollections: {
+  content: {
+    collections: {
     posts: {
       entrySchema: 'config:content',
-      directory: 'public/content/posts',
-    },
-  },
-  publicDir: 'public',
+      directory: 'src/content/posts',
+     },
+    }
+  }        
 });

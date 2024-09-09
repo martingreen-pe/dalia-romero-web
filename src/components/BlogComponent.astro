@@ -20,7 +20,7 @@ function getImageUrl(post) {
   <div class="post-grid">
     {posts.map((post) => (
       <article class="post-card">
-        {post.data.image && <img src={getImageUrl(post)} alt={post.data.title} />}
+         {post.data.image && <img src={getImageUrl(post)} alt={post.data.title} />}
         <div class="post-content">
           <h3>{post.data.title}</h3>
           <p>{truncate(post.data.description, 100)}</p>

@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: main # o el nombre de tu rama principal
 
-media_folder: "public/content/posts"
+media_folder: "src/content/posts"
 public_folder: "/content/posts"
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "public/content/posts"
+    folder: "src/content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     media_folder: ''
