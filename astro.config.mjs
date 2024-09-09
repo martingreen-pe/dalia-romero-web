@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import netlify from '@astrojs/netlify/functions';
-import type { Schema } from 'astro:schema';
 
 export default defineConfig({
   output: 'server',
@@ -18,7 +17,7 @@ export default defineConfig({
   content: {
     collections: {
     posts: {
-      Schema: 'config:content',
+      schema: 'config:content',
       directory: 'src/content/posts',
      },
     }
