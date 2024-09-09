@@ -14,18 +14,16 @@ export default defineConfig({
   // Habilita los scripts del lado del cliente
   scripts: {
     clientEntry: true
-  },
-
-  vite: {
-    assetsInclude: ['**/*.jpg', '**/*.png', '**/*.gif', '**/*.svg'],
-  },
-  
+  },  
   content: {
     collections: {
     posts: {
-      schema: 'config:content',
+      Schema: 'config:content',
       directory: 'src/content/posts',
      },
     }
-  }        
+  },   
+  vite: {
+    assetsInclude: ['**/*.jpg', '**/*.png', '**/*.gif', '**/*.svg'],
+  },     
 });
