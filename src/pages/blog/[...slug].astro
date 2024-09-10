@@ -15,10 +15,18 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
+// Función para obtener la URL de la imagen
 function getImageUrl(post) {
+  // Si el campo 'post.data.image' ya contiene una ruta completa, úsala tal cual
+  if (post.data.image && post.data.image.startsWith('/images/posts-images/')) {
+    return post.data.image;
+  }
+  
+  // Si no, genera la ruta de la imagen con el slug
   if (post.data.image) {
     return `/images/posts-images/${post.slug}/${post.data.image}`;
   }
+  
   return null;
 }
 ---
