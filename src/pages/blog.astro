@@ -24,7 +24,9 @@ function getImageUrl(post) {
     <div class="post-list">
       {posts.map((post) => (
         <article class="post-item">
-          {post.data.image && <img src={`/images/posts/${post.slug}/${post.data.image}`} alt={post.data.title} />}
+          {post.data.image && (
+            <img src={getImageUrl(post)} alt={post.data.title} />
+          )}
           <div class="post-content">
             <h2>{post.data.title}</h2>
             <p>{truncate(post.data.description, 150)}</p>
