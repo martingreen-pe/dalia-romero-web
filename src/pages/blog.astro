@@ -4,17 +4,17 @@ import Layout from '../layouts/Layout.astro';
 
 const posts = await getCollection('posts');
 
-function truncate(text: string, length: number) {
+// Función para truncar texto si es necesario
+function truncate(text, length) {
   return text.length > length ? text.substring(0, length) + '...' : text;
 }
 
+// Función para generar la URL correcta de la imagen
 function getImageUrl(post) {
-  // Si 'post.data.image' contiene la ruta completa, la usamos tal cual
-  if (post.data.image && post.data.image.startsWith('/images/posts-images/')) {
-    return post.data.image;  // Ya tiene la ruta correcta
+  if (post.data.image && !post.data.image.includes('/images/posts-images/')) {
+    return `/images/posts-images/${post.slug}/${post.data.image}`;
   }
-  // Si solo contiene el nombre de la imagen, construimos la ruta completa
-  return `/images/posts-images/${post.slug}/${post.data.image}`;
+  return post.data.image;  // Si ya tiene la ruta correcta, devuélvela tal cual
 }
 ---
 
