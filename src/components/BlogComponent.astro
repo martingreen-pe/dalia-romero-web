@@ -42,20 +42,21 @@ function getImageUrl(post) {
 <style>
   .blog-section {
     margin-top: 3.5rem;
-    padding: 2rem;
+    padding: 1rem;  /* Reduce el padding en pantallas pequeñas */
     background: var(--gradient-secondary);
     color: var(--color-text);
+    box-sizing: border-box;  /* Asegura que el padding no afecte el tamaño total */
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;  /* Ajusta el tamaño del título para pantallas pequeñas */
     margin-bottom: 1rem;
   }
 
   .post-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr;  /* En pantallas pequeñas, una columna */
+    gap: 1rem;  /* Reduce el espacio entre los artículos */
   }
 
   .post-card {
@@ -63,6 +64,8 @@ function getImageUrl(post) {
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    width: 100%;  /* Asegura que las tarjetas ocupen todo el ancho */
+    box-sizing: border-box;
   }
 
   .post-card:hover {
@@ -71,7 +74,7 @@ function getImageUrl(post) {
 
   .post-card img {
     width: 100%;
-    height: 200px;
+    height: auto;
     object-fit: cover;
   }
 
@@ -109,5 +112,12 @@ function getImageUrl(post) {
 
   .post-card a:hover {
     text-decoration: underline;
+  }
+
+  /* Ajustes adicionales para pantallas más grandes */
+  @media (min-width: 768px) {
+    .post-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* 1 o 2 columnas según el tamaño */
+    }
   }
 </style>
