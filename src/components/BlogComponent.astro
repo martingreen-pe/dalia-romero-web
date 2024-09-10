@@ -8,11 +8,14 @@ function truncate(text: string, length: number) {
 }
 
 function getImageUrl(post) {
-  if (post.data.image) {
-    return `/images/posts-images/${post.slug}/${post.data.image}`;
+  // Si 'post.data.image' contiene la ruta completa, la usamos tal cual
+  if (post.data.image && post.data.image.startsWith('/images/posts-images/')) {
+    return post.data.image;  // Ya tiene la ruta correcta
   }
-  return null;
+  // Si solo contiene el nombre de la imagen, construimos la ruta completa
+  return `/images/posts-images/${post.slug}/${post.data.image}`;
 }
+
 ---
 
 <section class="blog-section">
