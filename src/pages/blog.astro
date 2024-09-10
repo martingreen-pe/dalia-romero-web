@@ -7,6 +7,15 @@ const posts = await getCollection('posts');
 function truncate(text: string, length: number) {
   return text.length > length ? text.substring(0, length) + '...' : text;
 }
+
+function getImageUrl(post) {
+  // Si 'post.data.image' contiene la ruta completa, la usamos tal cual
+  if (post.data.image && post.data.image.startsWith('/images/posts-images/')) {
+    return post.data.image;  // Ya tiene la ruta correcta
+  }
+  // Si solo contiene el nombre de la imagen, construimos la ruta completa
+  return `/images/posts-images/${post.slug}/${post.data.image}`;
+}
 ---
 
 <Layout title="Blog">
