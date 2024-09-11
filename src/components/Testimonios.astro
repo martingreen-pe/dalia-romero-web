@@ -35,14 +35,16 @@ const testimonios = [
   .testimonios {
     margin-top: 3.5rem;
     padding: 4rem 1rem;
-    background: var(--gradient-secondary);
+    background: var(--gradient-primary); /* Usando el degradado definido globalmente */
   }
 
   .testimonios__titulo {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--color-text);
+    color: var(--color-dark-gray); /* Color oscuro para contraste */
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Espaciado de letras para el título */
   }
 
   .testimonios__grid {
@@ -53,43 +55,47 @@ const testimonios = [
   }
 
   .testimonio-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto suave de hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   }
 
   .testimonio-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más fuerte en hover */
   }
 
   .testimonio-card__texto {
     font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark-gray); /* Color oscuro para el texto */
+    font-style: italic; /* Texto en cursiva para destacar el testimonio */
   }
 
   .testimonio-card__autor {
     font-weight: bold;
-    color: var(--color-accent);
+    color: var(--color-accent); /* Color de acento para el nombre */
+    margin-bottom: 0.5rem;
   }
 
   .testimonio-card__curso {
     font-size: 0.9rem;
-    color: var(--color-text);
+    color: var(--color-medium-gray); /* Color más suave para el curso */
   }
 
   @media (min-width: 768px) {
     .testimonios__grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
     }
   }
 
   @media (min-width: 1024px) {
     .testimonios__grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
     }
   }
 </style>

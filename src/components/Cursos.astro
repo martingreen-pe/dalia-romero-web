@@ -21,6 +21,11 @@ const cursos = [
     imagen: "/images/curso-polygel.png"
   }
 ];
+
+// Función para truncar texto
+const truncateText = (text, limit) => {
+  return text.length > limit ? text.substring(0, limit) + "..." : text;
+};
 ---
 
 <section id="cursos" class="cursos">
@@ -31,7 +36,7 @@ const cursos = [
         <img src={curso.imagen} alt={curso.titulo} class="curso-card__imagen" />
         <div class="curso-card__content">
           <h3 class="curso-card__titulo">{curso.titulo}</h3>
-          <p class="curso-card__descripcion">{curso.descripcion}</p>
+          <p class="curso-card__descripcion">{truncateText(curso.descripcion, 100)}</p> <!-- Limita la descripción a 100 caracteres -->
           <a href={`/curso/${curso.titulo.toLowerCase().replace(/ /g, '-')}`} class="curso-card__cta">Más información</a>
         </div>
       </div>
@@ -42,13 +47,16 @@ const cursos = [
 <style>
   .cursos {
     padding: 4rem 1rem;
+    background-color: var(--color-off-white); /* Fondo claro para la sección */
   }
 
   .cursos__title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--color-text);
+    color: var(--color-dark-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .cursos__grid {
@@ -57,9 +65,11 @@ const cursos = [
   }
 
   .curso-card {
-    background: var(--gradient-secondary);
+    background: var(--gradient-primary); /* Usando el degradado desde global.css */
     border-radius: 10px;
     overflow: hidden;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
@@ -72,47 +82,58 @@ const cursos = [
     width: 100%;
     height: 200px;
     object-fit: cover;
+    filter: brightness(0.9); /* Ligero oscurecimiento para destacar el contenido */
+    transition: filter 0.3s ease;
+  }
+
+  .curso-card__imagen:hover {
+    filter: brightness(1); /* Imagen más brillante al hacer hover */
   }
 
   .curso-card__content {
-    padding: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
   }
 
   .curso-card__titulo {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--color-text);
+    color: var(--color-dark-gray);
   }
 
   .curso-card__descripcion {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: var(--color-text);
+    color: var(--color-medium-gray);
   }
 
   .curso-card__cta {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     background: var(--color-accent);
-    color: var(--color-text);
+    color: var(--color-white);
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
   }
 
   .curso-card__cta:hover {
-    background: #1ea952;
+    background: var(--color-accent-light);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(106, 90, 205, 0.3);
   }
 
   @media (min-width: 768px) {
     .cursos__grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
     }
   }
 
   @media (min-width: 1024px) {
     .cursos__grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
     }
   }
 </style>
+

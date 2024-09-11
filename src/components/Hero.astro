@@ -2,92 +2,98 @@
 ---
 
 <section class="hero">
-    <div class="hero__content">
+  <div class="hero__content">
       <h1 class="hero__title">Transforma tu pasión en profesión</h1>
       <p class="hero__subtitle">Descubre nuestros cursos de belleza y lleva tu carrera al siguiente nivel</p>
       <a href="#cursos" class="hero__cta">Explora nuestros cursos</a>
-    </div>
-    <div class="hero__image">
+  </div>
+  <div class="hero__image">
       <img src="/images/hero-uñas-acrilicas-optimizado.jpg" alt="Cursos de belleza" width="1920" height="1080">
-    </div>
-  </section>
-  
-  <style>
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-  
-    .hero__content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 2rem;
-      background: rgba(74, 20, 140, 0.7);
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-  
-    .hero__content:hover {
-      transform: scale(1.05);
-    }
-  
-    .hero__title {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--color-text);
-    }
-  
-    .hero__subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--color-text);
-    }
-  
-    .hero__cta {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: var(--color-accent);
-      color: var(--color-text);
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-  
-    .hero__cta:hover {
-      background: #1ea952;
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-    }
-  
-    .hero__image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-  
-    .hero__image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  
-    @media (max-width: 768px) {
-      .hero__title {
-        font-size: 2rem;
-      }
-  
-      .hero__subtitle {
-        font-size: 1.2rem;
-      }
-    }
-  </style>
+  </div>
+</section>
+
+<style>
+/* Estilos para el hero */
+.hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100vw; /* Aseguramos que el hero ocupe todo el ancho de la ventana */
+  padding: 0; /* Sin padding */
+  margin: 0; /* Sin márgenes */
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1rem; /* Padding interno para el contenido */
+  background: rgba(74, 20, 140, 0.85); /* Fondo semitransparente */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.hero__content:hover {
+  transform: scale(1.05); /* Efecto hover */
+}
+
+.hero__title {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-white);
+}
+
+.hero__subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-off-white);
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.hero__cta:hover {
+  background: #1ea952;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Asegura que la imagen ocupe todo el ancho de la ventana */
+  height: 100%; /* La imagen ocupa todo el alto */
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .hero__title {
+    font-size: 3rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero__cta {
+    padding: 1rem 2rem;
+  }
+}
+</style>
