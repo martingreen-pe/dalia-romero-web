@@ -45,21 +45,23 @@ function getImageUrl(post) {
 
 <style>
   .blog-page {
-    padding: 2rem;
+    padding: 1rem; /* Ajustado para móviles */
     background: var(--gradient-secondary);
     min-height: 100vh;
     color: var(--color-text);
   }
 
   h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
+    font-size: 2rem; /* Ajustado para móviles */
+    margin-bottom: 1.5rem;
     color: var(--color-accent);
+    text-align: center; /* Centrar el título */
   }
 
   .post-list {
-    display: grid;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column; /* Lista vertical en móviles */
+    gap: 1rem;
   }
 
   .post-item {
@@ -67,6 +69,7 @@ function getImageUrl(post) {
     border-radius: 8px;
     overflow: hidden;
     display: flex;
+    flex-direction: column; /* Orden vertical en móviles */
     transition: transform 0.3s ease;
   }
 
@@ -75,19 +78,20 @@ function getImageUrl(post) {
   }
 
   .post-item img {
-    width: 300px;
-    height: 200px;
+    width: 100%; /* Ajustado para ocupar el ancho completo */
+    height: auto; /* Mantener la relación de aspecto */
     object-fit: cover;
   }
 
   .post-content {
-    padding: 1.5rem;
+    padding: 1rem;
     flex: 1;
   }
 
   .post-item h2 {
     color: var(--color-accent);
     margin-bottom: 0.5rem;
+    font-size: 1.5rem; /* Ajustado para móviles */
   }
 
   .categories {
@@ -107,7 +111,7 @@ function getImageUrl(post) {
 
   .post-item a {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 0.5rem; /* Ajustado para móviles */
     color: var(--color-accent);
     text-decoration: none;
     font-weight: bold;
@@ -115,5 +119,43 @@ function getImageUrl(post) {
 
   .post-item a:hover {
     text-decoration: underline;
+  }
+
+  @media (min-width: 768px) {
+    .blog-page {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .post-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .post-item {
+      flex-direction: row;
+    }
+
+    .post-item img {
+      width: 300px; /* Imagen fija en pantallas más grandes */
+      height: 200px;
+    }
+
+    .post-content {
+      padding: 1.5rem;
+    }
+
+    .post-item h2 {
+      font-size: 2rem;
+    }
+
+    .post-item a {
+      margin-top: 1rem;
+    }
   }
 </style>

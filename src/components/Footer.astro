@@ -16,8 +16,8 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .footer {
-    background: linear-gradient(135deg, #8a2be2, #4b0082);
-    color: white;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0, #d6a8f0, #a66eff);
+    color: var(--color-dark-gray);
     padding: 2rem 0;
     margin-top: 2rem;
   }
@@ -31,6 +31,11 @@ const currentYear = new Date().getFullYear();
 
   .footer__copyright {
     margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .footer__nav {
+    margin-top: 1rem;
   }
 
   .footer__menu {
@@ -41,13 +46,14 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer__menu-item a {
-    color: white;
+    color: var(--color-dark-gray);
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 0.875rem;
   }
 
   .footer__menu-item a:hover {
-    color: #25D366;
+    color: #6a1b9a; /* Un morado más oscuro para el hover */
   }
 
   @media (min-width: 768px) {
@@ -59,6 +65,7 @@ const currentYear = new Date().getFullYear();
 
     .footer__copyright {
       margin-bottom: 0;
+      font-size: 1.125rem;
     }
   }
 </style>

@@ -13,17 +13,18 @@
 </section>
 
 <style>
-/* Estilos para el hero */
-.hero {
+ .hero {
   position: relative;
-  height: 60vh;
+  height: 60vh; /* Ajuste para móviles */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 100vw; /* Aseguramos que el hero ocupe todo el ancho de la ventana */
   padding: 0; /* Sin padding */
   margin: 0; /* Sin márgenes */
+  width: 100vw; /* Ocupar todo el ancho de la ventana */
+  max-width: 100%; /* Evita restricciones de ancho */
+  background-color: var(--color-white); /* Color de fondo */
 }
 
 .hero__content {
@@ -37,63 +38,75 @@
 }
 
 .hero__content:hover {
-  transform: scale(1.05); /* Efecto hover */
+  transform: scale(1.05); /* Efecto hover para escalar el contenido */
 }
 
 .hero__title {
-  font-size: 2rem;
+  font-size: 2rem; /* Ajuste para móviles */
   margin-bottom: 0.75rem;
-  color: var(--color-white);
+  color: var(--color-white); /* Color de título */
 }
 
 .hero__subtitle {
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Tamaño del subtítulo para móviles */
   margin-bottom: 1.5rem;
-  color: var(--color-off-white);
+  color: var(--color-off-white); /* Color del subtítulo */
 }
 
 .hero__cta {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: var(--color-accent);
-  color: var(--color-white);
+  padding: 0.75rem 1.5rem; /* Tamaño adecuado para móviles */
+  background: var(--color-accent); /* Color de fondo del botón */
+  color: var(--color-white); /* Color del texto */
   text-decoration: none;
-  border-radius: 50px;
+  border-radius: 50px; /* Botón con bordes redondeados */
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .hero__cta:hover {
-  background: #1ea952;
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+  background: #1ea952; /* Color al hacer hover */
+  transform: translateY(-5px); /* Efecto hover de movimiento */
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); /* Sombra del botón */
 }
 
 .hero__image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw; /* Asegura que la imagen ocupe todo el ancho de la ventana */
+  width: 100vw; /* Asegura que la imagen ocupe todo el ancho */
   height: 100%; /* La imagen ocupa todo el alto */
-  object-fit: cover;
-  object-position: center;
+  z-index: 1;
 }
 
+.hero__image img {
+  width: 100vw; /* Imagen ocupa todo el ancho de la ventana */
+  height: 100%; /* Imagen cubre todo el contenedor */
+  object-fit: cover; /* Ajusta la imagen sin distorsión */
+  object-position: center; /* Centra la imagen */
+}
+
+
+/* Ajustes para pantallas más grandes */
 @media (min-width: 768px) {
   .hero {
-    height: 100vh;
+    height: 100vh; /* Ajuste del hero a 100% de la altura de la pantalla en pantallas más grandes */
   }
 
   .hero__title {
-    font-size: 3rem;
+    font-size: 3rem; /* Aumentar tamaño del título en pantallas grandes */
   }
 
   .hero__subtitle {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Ajuste del subtítulo en pantallas más grandes */
   }
 
   .hero__cta {
-    padding: 1rem 2rem;
+    padding: 1rem 2rem; /* Botón más grande en pantallas grandes */
   }
 }
-</style>
+
+  </style>
+  
+  
+  
