@@ -5,6 +5,9 @@ description: Aprende a dominar las uñas acrílicas, la técnica que ha sido
   resistencia y durabilidad.
 pubDate: 2024-09-14T19:57:32.206Z
 image: /images/posts-images/curso-de-uñas-acrílicas-crea-extensiones-resistentes-y-de-alta-calidad/curso-unas-acrilicas.png
+categories:
+  - NailArt
+  - Uñas-Acrilicas
 ---
 Si hay una técnica que ha revolucionado el mundo del **nail art** por su versatilidad y durabilidad, esa es sin duda el **acrílico**. Las **uñas acrílicas** han sido durante años una de las opciones más populares entre las clientas que buscan un acabado fuerte y personalizable. Ya sea para crear extensiones largas, diseños personalizados o simplemente para fortalecer las uñas naturales, las **uñas acrílicas** ofrecen una solución duradera y elegante.
 
