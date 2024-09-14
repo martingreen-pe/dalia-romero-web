@@ -46,94 +46,83 @@ const truncateText = (text, limit) => {
 
 <style>
   .cursos {
-    padding: 4rem 1rem;
-    background-color: var(--color-off-white); /* Fondo claro para la sección */
-  }
+  padding: 1rem;
+  background: var(--gradient-secondary);
+  color: var(--color-text);
+}
 
-  .cursos__title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--color-dark-gray);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+.cursos__title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+  text-align: center;
+}
 
+.cursos__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna por defecto (móviles) */
+  gap: 1rem;
+}
+
+.curso-card {
+  background: var(--gradient-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.curso-card:hover {
+  transform: translateY(-5px);
+}
+
+.curso-card__imagen {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.curso-card__content {
+  padding: 1rem;
+  flex: 1;
+}
+
+.curso-card__titulo {
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem; /* Ajustado para móviles */
+}
+
+.curso-card__descripcion {
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.curso-card__cta {
+  display: inline-block;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.curso-card__cta:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para pantallas medianas */
+@media (min-width: 768px) {
   .cursos__grid {
-    display: grid;
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
   }
+}
 
-  .curso-card {
-    background: var(--gradient-primary); /* Usando el degradado desde global.css */
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Estilo para pantallas grandes */
+@media (min-width: 1200px) {
+  .cursos__grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas grandes */
   }
+}
 
-  .curso-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .curso-card__imagen {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    filter: brightness(0.9); /* Ligero oscurecimiento para destacar el contenido */
-    transition: filter 0.3s ease;
-  }
-
-  .curso-card__imagen:hover {
-    filter: brightness(1); /* Imagen más brillante al hacer hover */
-  }
-
-  .curso-card__content {
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  .curso-card__titulo {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--color-dark-gray);
-  }
-
-  .curso-card__descripcion {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--color-medium-gray);
-  }
-
-  .curso-card__cta {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: var(--color-accent);
-    color: var(--color-white);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-
-  .curso-card__cta:hover {
-    background: var(--color-accent-light);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(106, 90, 205, 0.3);
-  }
-
-  @media (min-width: 768px) {
-    .cursos__grid {
-      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .cursos__grid {
-      grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
-    }
-  }
 </style>
 

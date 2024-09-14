@@ -1,0 +1,242 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contactDetails = {
+  phone: "+123 456 7890",
+  email: "contacto@academia.com",
+  address: "Calle de Ejemplo 123, Ciudad, País",
+  whatsappLink: "https://wa.me/1234567890",
+  socialLinks: {
+    facebook: "https://facebook.com/tuacademia",
+    instagram: "https://instagram.com/tuacademia",
+    tiktok: "https://tiktok.com/@tuacademia",
+  },
+  testimonios: [
+    {
+      nombre: "Ana Gómez",
+      curso: "Curso de Softgel",
+      testimonio: "Los cursos en la Academia de Uñas fueron transformadores. Aprendí técnicas que me ayudaron a mejorar mi negocio.",
+    },
+    {
+      nombre: "Luis Fernández",
+      curso: "Curso de Uñas Acrílicas",
+      testimonio: "Excelente formación y ambiente profesional. Recomendado para quienes quieren especializarse en uñas.",
+    },
+    {
+      nombre: "María López",
+      curso: "Curso de Manicura Rusa",
+      testimonio: "Un equipo profesional y cursos muy completos. Aprendí mucho y me sentí muy apoyada.",
+    }
+  ]
+};
+---
+
+<Layout>
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">¡Hola! Soy [Tu Nombre]</h1>
+      <p class="hero__subtitle">Fundador(a) de la Academia de Uñas [Nombre de la Academia]. Estamos aquí para resolver tus dudas y ayudarte a comenzar tu carrera en el mundo de las uñas.</p>
+    </div>
+    <div class="hero__image">
+      <img src="/images/hero-uñas-acrilicas-optimizado.jpg" alt="Contacto" />
+    </div>
+  </section>
+
+  <section class="contact-info">
+    <h2>Contacto</h2>
+    <p><strong>Teléfono:</strong> {contactDetails.phone}</p>
+    <p><strong>Email:</strong> {contactDetails.email}</p>
+    <p><strong>Dirección:</strong> {contactDetails.address}</p>
+    <a href={contactDetails.whatsappLink} class="whatsapp-button">Contáctanos por WhatsApp</a>
+  </section>
+
+  <section class="testimonios">
+    <h2>Lo que dicen nuestros estudiantes</h2>
+    <div class="testimonios__grid">
+      {contactDetails.testimonios.map((testimonio) => (
+        <div class="testimonio-card">
+          <p class="testimonio-card__texto">"{testimonio.testimonio}"</p>
+          <p class="testimonio-card__autor">{testimonio.nombre}</p>
+          <p class="testimonio-card__curso">{testimonio.curso}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="social-media">
+    <h2>Síguenos en redes sociales</h2>
+    <div class="social-media__buttons">
+      <a href={contactDetails.socialLinks.facebook} class="social-media__button facebook">Facebook</a>
+      <a href={contactDetails.socialLinks.instagram} class="social-media__button instagram">Instagram</a>
+      <a href={contactDetails.socialLinks.tiktok} class="social-media__button tiktok">TikTok</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 60vh; /* Ajuste para móvil */
+    overflow: hidden;
+  }
+
+  .hero__content {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(106, 90, 205, 0.75); /* Fondo con color degradado semitransparente */
+    border-radius: 8px;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-white);
+  }
+
+  .hero__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-info {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .whatsapp-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background: var(--color-whatsapp);
+    color: var(--color-white);
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .whatsapp-button:hover {
+    background: var(--color-whatsapp-dark);
+  }
+
+  .testimonios {
+    padding: 2rem 1rem;
+    background: var(--gradient-primary);
+  }
+
+  .testimonios__titulo {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-dark-gray);
+    margin-bottom: 1rem;
+  }
+
+  .testimonios__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .testimonio-card {
+    background: var(--color-off-white);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .testimonio-card__texto {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .testimonio-card__autor {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+
+  .testimonio-card__curso {
+    color: var(--color-medium-gray);
+  }
+
+  .social-media {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .social-media__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .social-media__button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+
+  .social-media__button.facebook {
+    background: linear-gradient(135deg, #3b5998, #8b9dc3);
+  }
+
+  .social-media__button.instagram {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  }
+
+  .social-media__button.tiktok {
+    background: linear-gradient(135deg, #000000, #4a4a4a);
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      height: 70vh;
+    }
+
+    .hero__content {
+      padding: 3rem;
+    }
+
+    .hero__title {
+      font-size: 3rem;
+    }
+
+    .hero__subtitle {
+      font-size: 1.5rem;
+    }
+
+    .testimonios__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .social-media__buttons {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+</style>

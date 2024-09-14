@@ -45,117 +45,127 @@ function getImageUrl(post) {
 
 <style>
   .blog-page {
-    padding: 1rem; /* Ajustado para móviles */
-    background: var(--gradient-secondary);
-    min-height: 100vh;
-    color: var(--color-text);
+  padding: 1rem;
+  background: var(--gradient-secondary);
+  min-height: 100vh;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+  text-align: center;
+}
+
+/* Estilo de la lista de posts */
+.post-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna para móviles */
+  gap: 1rem;
+}
+
+.post-item {
+  background: var(--gradient-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.post-item:hover {
+  transform: translateY(-5px);
+}
+
+.post-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 1rem;
+  flex: 1;
+}
+
+.post-item h2 {
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.category {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.post-item a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-item a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para tablets y pantallas medianas */
+@media (min-width: 768px) {
+  .blog-page {
+    padding: 2rem;
   }
 
   h1 {
-    font-size: 2rem; /* Ajustado para móviles */
-    margin-bottom: 1.5rem;
-    color: var(--color-accent);
-    text-align: center; /* Centrar el título */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .post-list {
-    display: flex;
-    flex-direction: column; /* Lista vertical en móviles */
-    gap: 1rem;
-  }
-
-  .post-item {
-    background: var(--gradient-primary);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column; /* Orden vertical en móviles */
-    transition: transform 0.3s ease;
-  }
-
-  .post-item:hover {
-    transform: translateY(-5px);
-  }
-
-  .post-item img {
-    width: 100%; /* Ajustado para ocupar el ancho completo */
-    height: auto; /* Mantener la relación de aspecto */
-    object-fit: cover;
-  }
-
-  .post-content {
-    padding: 1rem;
-    flex: 1;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
+    gap: 2rem;
   }
 
   .post-item h2 {
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem; /* Ajustado para móviles */
+    font-size: 2rem;
+  }
+}
+
+/* Estilo para pantallas grandes (PC) */
+@media (min-width: 1024px) {
+  .blog-page {
+    padding: 3rem;
+    margin-top: 1rem;
   }
 
-  .categories {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+  h1 {
+    font-size: 3rem;
   }
 
-  .category {
-    background-color: var(--color-accent);
-    color: var(--color-text);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
+  .post-list {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
+    gap: 2rem;
   }
 
-  .post-item a {
-    display: inline-block;
-    margin-top: 0.5rem; /* Ajustado para móviles */
-    color: var(--color-accent);
-    text-decoration: none;
-    font-weight: bold;
+  .post-item img {
+    height: 250px;
   }
 
-  .post-item a:hover {
-    text-decoration: underline;
+  .post-item h2 {
+    font-size: 1rem;
   }
+}
 
-  @media (min-width: 768px) {
-    .blog-page {
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .post-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .post-item {
-      flex-direction: row;
-    }
-
-    .post-item img {
-      width: 300px; /* Imagen fija en pantallas más grandes */
-      height: 200px;
-    }
-
-    .post-content {
-      padding: 1.5rem;
-    }
-
-    .post-item h2 {
-      font-size: 2rem;
-    }
-
-    .post-item a {
-      margin-top: 1rem;
-    }
-  }
 </style>
