@@ -10,9 +10,9 @@
     <nav class="header__nav">
       <ul class="header__menu">
         <li class="header__menu-item"><a href="/">Inicio</a></li>
-        <li class="header__menu-item"><a href="/blog">Blog</a></li>
         <li class="header__menu-item"><a href="/cursos">Cursos</a></li>
-        <li class="header__menu-item"><a href="/sobre-mi">Sobre Mí</a></li>
+        <li class="header__menu-item"><a href="/blog">Blog</a></li>
+        <li class="header__menu-item"><a href="/sobreMi">Sobre Mi</a></li>
         <li class="header__menu-item"><a href="/contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -25,8 +25,8 @@
 
 <style>
   .header {
-    background-color: var(--color-white);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem 1rem 1rem 0rem;
     position: fixed;
     width: 100%;
@@ -34,23 +34,27 @@
     left: 0;
     z-index: 1000;
   }
+  
   .header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  
   .header__logo {
     color: var(--color-accent);
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
   }
+  
   .header__toggle {
     display: block;
     background: none;
     border: none;
     cursor: pointer;
   }
+  
   .header__toggle-icon {
     display: block;
     width: 30px;
@@ -59,6 +63,7 @@
     position: relative;
     transition: background-color 0.3s ease;
   }
+  
   .header__toggle-icon::before,
   .header__toggle-icon::after {
     content: '';
@@ -68,12 +73,15 @@
     background-color: var(--color-accent);
     transition: transform 0.3s ease;
   }
+  
   .header__toggle-icon::before {
     transform: translateY(-8px);
   }
+  
   .header__toggle-icon::after {
     transform: translateY(8px);
   }
+  
   .header__nav {
     display: none;
     position: absolute;
@@ -83,35 +91,44 @@
     background-color: var(--color-white);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+  
   .header__nav--active {
     display: block;
   }
+  
   .header__menu {
     list-style: none;
     padding: 1rem;
     margin: 0;
   }
+  
   .header__menu-item {
     margin-bottom: 1rem;
     text-align: center;
   }
+  
   .header__menu-item a {
     color: var(--color-dark-gray);
     text-decoration: none;
     transition: color 0.3s ease;
   }
+  
   .header__menu-item a:hover {
     color: var(--color-accent);
   }
+  
   .header__toggle-icon.active {
     background-color: transparent;
   }
+  
   .header__toggle-icon.active::before {
     transform: translateY(0) rotate(45deg);
   }
+  
   .header__toggle-icon.active::after {
     transform: translateY(0) rotate(-45deg);
   }
+  
   .header__cta {
     display: none;
     align-items: center;
@@ -123,18 +140,22 @@
     font-weight: bold;
     transition: background-color 0.3s ease;
   }
+  
   .header__cta:hover {
     background-color: var(--color-accent-light);
   }
+  
   .header__cta-icon {
     width: 24px;
     height: 24px;
     margin-right: 0.5rem;
   }
+  
   @media (min-width: 768px) {
     .header__toggle {
       display: none;
     }
+    
     .header__nav {
       display: block;
       position: static;
@@ -142,14 +163,17 @@
       background: none;
       box-shadow: none;
     }
+    
     .header__menu {
       display: flex;
       padding: 0;
     }
+    
     .header__menu-item {
       margin-bottom: 0;
       margin-left: 1.5rem;
     }
+    
     .header__cta {
       display: inline-flex;
     }

@@ -1,0 +1,200 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contactDetails = {
+  phone: "+123 456 7890",
+  whatsappLink: "https://wa.me/1234567890",
+  socialLinks: {
+    facebook: "https://facebook.com/tuacademia",
+    instagram: "https://instagram.com/tuacademia",
+    tiktok: "https://tiktok.com/@tuacademia",
+  }
+};
+---
+<Layout>
+  <section class="sobre-mi">
+    <div class="container">
+      <!-- Imagen de presentación -->
+      <div class="sobre-mi__image-container">
+        <img src="/images/dalia-romero.png" alt="Dalia Romero" class="sobre-mi__image" />
+      </div>
+
+      <!-- Texto de presentación -->
+      <h1 class="sobre-mi__title">Sobre mí</h1>
+      <p class="sobre-mi__text">
+        ¡Hola! Soy <strong class="highlight">Dalia Romero</strong>, <strong class="highlight">venezolana de corazón</strong> y <strong class="highlight">artista</strong> desde que tengo memoria. Desde pequeña, siempre me vi atraída por el <strong class="highlight">arte</strong>, pasando horas pintando murales, dibujando e ilustrando. Pero cuando descubrí el mundo del <strong class="highlight">nail art</strong>, supe que había encontrado el espacio perfecto para fusionar mi amor por el arte con la belleza.
+      </p>
+      <p class="sobre-mi__text">
+        Tengo más de <strong class="highlight">5 años de experiencia</strong> en el rubro y me he formado en reconocidas <strong class="highlight">academias certificadas</strong>, completando numerosos cursos y talleres para perfeccionar cada detalle. Hace dos años decidí emprender y abrir mi propio <strong class="highlight">salón de uñas</strong>, pero este <strong class="highlight">2024</strong> marca un punto de inflexión en mi carrera: participé en competencias como la <strong class="highlight">Copa Perú Nails 2024</strong>, donde gané el <strong class="highlight">primer lugar</strong> en una categoría y el <strong class="highlight">segundo lugar</strong> en dos más. Además, en <strong class="highlight">Manicure Mania 2024</strong>, un evento con los mejores profesores internacionales, me llevé el <strong class="highlight">primer lugar</strong> una vez más.
+      </p>
+      <p class="sobre-mi__text">
+        Mi <strong class="highlight">pasión por las uñas</strong> no solo es técnica, es una forma de <strong class="highlight">expresión artística</strong>. Ahora, mi misión es compartir ese conocimiento y pasión con otras mujeres que, como yo, desean adentrarse en este <strong class="highlight">increíble mundo del nail art</strong>. En mi academia encontrarás <strong class="highlight">cursos</strong> diseñados para ayudarte a explotar tu talento y dar tus primeros pasos hacia una carrera exitosa.
+      </p>
+      <p class="sobre-mi__text">
+        ¡Te invito a formar parte de esta aventura y dejar que tus <strong class="highlight">uñas</strong> se conviertan en una obra de arte!
+      </p>
+    </div>
+  </section>
+
+  <!-- Sección de contacto y redes sociales -->
+  <section class="contacto">
+    <div class="container">
+      <h2 class="contacto__title">¡Contáctame!</h2>
+      <p class="contacto__text">
+        Si quieres saber más sobre mis cursos o tienes alguna duda, no dudes en contactarme. Estoy aquí para ayudarte a dar tus primeros pasos en el mundo del nail art.
+      </p>
+      <a href={contactDetails.whatsappLink} class="whatsapp-button">Contáctame por WhatsApp</a>
+      <div class="social-media">
+        <h3 class="social-media__title">Sígueme en redes sociales</h3>
+        <div class="social-media__buttons">
+          <a href={contactDetails.socialLinks.facebook} class="social-media__button facebook">Facebook</a>
+          <a href={contactDetails.socialLinks.instagram} class="social-media__button instagram">Instagram</a>
+          <a href={contactDetails.socialLinks.tiktok} class="social-media__button tiktok">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Diseño Mobile-First */
+  .sobre-mi {
+    background: var(--gradient-primary);
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--color-dark-gray);
+    margin-top: 3.5rem;
+  }
+
+  .sobre-mi__image-container {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .sobre-mi__image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: -1rem;
+  }
+
+  .sobre-mi__title {
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .sobre-mi__text {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .highlight {
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .contacto {
+    background: var(--color-light-gray);
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .contacto__title {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .contacto__text {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+
+  .whatsapp-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--color-whatsapp);
+    color: var(--color-white);
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+
+  .whatsapp-button:hover {
+    background: var(--color-whatsapp-dark);
+  }
+
+  .social-media__title {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .social-media__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-media__button {
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .social-media__button.facebook {
+    background: linear-gradient(135deg, #3b5998, #8b9dc3);
+  }
+
+  .social-media__button.instagram {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  }
+
+  .social-media__button.tiktok {
+    background: linear-gradient(135deg, #000000, #4a4a4a);
+  }
+
+  /* Media Query para pantallas más grandes (tablet y desktop) */
+  @media (min-width: 768px) {
+    .sobre-mi__image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .sobre-mi__title {
+      font-size: 2.5rem;
+    }
+
+    .sobre-mi__text {
+      font-size: 1.2rem;
+      max-width: 800px;
+    }
+
+    .contacto__title {
+      font-size: 2rem;
+    }
+
+    .social-media__buttons {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .social-media__button {
+      width: auto;
+    }
+  }
+</style>

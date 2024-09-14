@@ -1,0 +1,152 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const cursos = [
+  {
+    titulo: "Curso de Softgel",
+    descripcion: "Domina la técnica de uñas softgel para resultados duraderos y naturales.",
+    imagen: "/images/curso-soft-gel.png"
+  },
+  {
+    titulo: "Curso de Uñas Acrílicas",
+    descripcion: "Aprende a crear uñas acrílicas perfectas con nuestro curso especializado.",
+    imagen: "/images/curso-unas-acrilicas.png"
+  },
+  {
+    titulo: "Curso de Manicura Rusa",
+    descripcion: "Descubre los secretos de la manicura rusa y lleva tu técnica al siguiente nivel.",
+    imagen: "/images/curso-manicura-rusa.png"
+  },
+  {
+    titulo: "Curso de PolyGel",
+    descripcion: "Perfecciona tus habilidades en la aplicación de Polygel para uñas naturales y elegantes.",
+    imagen: "/images/curso-polygel.png"
+  }
+];
+
+// Función para truncar texto
+const truncateText = (text, limit) => {
+  return text.length > limit ? text.substring(0, limit) + "..." : text;
+};
+---
+
+<Layout>
+  <section id="cursos" class="cursos">
+    <h2 class="cursos__title">Nuestros Cursos</h2>
+    <p class="cursos__subtitle">Explora nuestros cursos y perfecciona tus habilidades en el arte de las uñas. Cada curso está diseñado para brindarte conocimientos prácticos y avanzados.</p>
+    <div class="cursos__grid">
+      {cursos.map((curso) => (
+        <div class="curso-card">
+          <img src={curso.imagen} alt={curso.titulo} class="curso-card__imagen" />
+          <div class="curso-card__content">
+            <h3 class="curso-card__titulo">{curso.titulo}</h3>
+            <p class="curso-card__descripcion">{truncateText(curso.descripcion, 100)}</p> <!-- Limita la descripción a 100 caracteres -->
+            <a href={`/curso/${curso.titulo.toLowerCase().replace(/ /g, '-')}`} class="curso-card__cta">Más información</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Estilo de la sección de cursos */
+  .cursos {
+    padding: 2rem 1rem;
+    background: var(--color-white);
+    color: var(--color-text);
+    margin-top: 3.5rem;
+  }
+
+  .cursos__title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+    text-align: center;
+  }
+
+  .cursos__subtitle {
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-medium-gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cursos__grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto en móviles */
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .curso-card {
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .curso-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .curso-card__imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .curso-card__content {
+    padding: 1rem;
+    flex: 1;
+  }
+
+  .curso-card__titulo {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .curso-card__descripcion {
+    font-size: 1rem;
+    color: var(--color-dark-gray);
+    margin-bottom: 1.5rem;
+  }
+
+  .curso-card__cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: var(--color-white);
+    background: var(--color-accent);
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .curso-card__cta:hover {
+    background: var(--color-accent-light);
+  }
+
+  /* Estilo para pantallas medianas */
+  @media (min-width: 768px) {
+    .cursos__grid {
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+  }
+
+  /* Estilo para pantallas grandes */
+  @media (min-width: 1200px) {
+    .cursos__grid {
+      grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
+    }
+  }
+</style>
